@@ -1,0 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+^kjvdat\.txt$
+^apodat\.txt$
+^kingjamesbooks\.xls$
+^apocryphabooks\.xls$
+^README\.Rmd$
+^README-.*\.png$
+^\.travis\.yml$
+^revdep$
