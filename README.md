@@ -41,7 +41,7 @@ knitr::kable(head(kingjamesdf, 3))
 | Gen               | Genesis          | Genesis | Genesis      | The First Book of Moses, called Genesis | Old Testament | Gen|1|2| | And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.~ |
 | Gen               | Genesis          | Genesis | Genesis      | The First Book of Moses, called Genesis | Old Testament | Gen|1|3| | And God said, Let there be light: and there was light.~                                                                                         |
 
-### Cropus
+### Corpus
 
 ``` r
 library(tm)
@@ -89,7 +89,7 @@ knitr::kable(head(apocryphadf, 3))
 | Es1               | 1 Esdras         | 3 Esdrae | 3 Esdras     | The First Book of Esdras | Es1|1|2| | Es1|1|2|Having set the priests according to their daily courses, being arrayed in long garments, in the temple of the Lord.                                                                                       |
 | Es1               | 1 Esdras         | 3 Esdrae | 3 Esdras     | The First Book of Esdras | Es1|1|3| | Es1|1|3|And he spake unto the Levites, the holy ministers of Israel, that they should hallow themselves unto the Lord, to set the holy ark of the Lord in the house that king Solomon the son of David had built: |
 
-### Cropus
+### Corpus
 
 ``` r
 library(tm)
