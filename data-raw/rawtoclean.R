@@ -3,6 +3,10 @@
 # from http://www.sacred-texts.com/bib/osrc/
 bible <- readLines("kjvdat.txt")
 kingjamesraw <- bible # keep raw
+
+# remove tilda
+bible <- gsub(".~", ".", bible)
+
 # extract verse
 verse <- regmatches(bible, gregexpr("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|",
                                    bible))
@@ -96,6 +100,20 @@ all$Text <- apocryphaclean
 
 apocryphadf <- all
 
+# ===============
+
+middle_english_stopwords <- c("and", "that", "to", "i", "for", "of", "the", "in", "he", "his",
+                              "this", "hir", "a", "as", "it", "so", "al", "is", "him", "but",
+                              "she", "with", "me", "ye", "my", "was", "be", "now", "wel", "on",
+                              "shal", "yow", "or", "herte", "god", "may", "love", "gan", "thou",
+                              "not", "no", "if", "y", "thus", "which", "what", "by", "ther",
+                              "seyde", "thy", "have", "myn", "ful", "right", "quod", "your",
+                              "they", "eek", "how", "here", "hem", "nought", "whan", "o", "thee",
+                              "at", "wolde", "wol", "were", "out", "thing", "more", "shall",
+                              "unto", "upon", "hath", "came", "come", "one", "also", "shalt",
+                              "let", "made", "went", "even", "saith", "hast", "say")
+
 devtools::use_data(kingjamesdf, kingjamestm, kingjamesbooks,
                    apocryphadf, apocryphatm, apocryphabooks,
+                   middle_english_stopwords,
                    overwrite = TRUE)
