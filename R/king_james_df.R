@@ -11,8 +11,9 @@
 #'   \item{Douay.Rheims}{Book title in Douay Rheims version}
 #'   \item{Full.Title.Auth.V}{Book title in authorized version}
 #'   \item{Testament}{Testament to which book belongs}
+#'   \item{Book.Number}{Book number as appear in Bible, starts with Genesis #1}
 #'   \item{Verse}{Verse}
 #'   \item{Text}{Text of verse}
 #' }
 #' @source \url{http://www.sacred-texts.com/bib/osrc/}
-"kingjamesdf"
+"king_james_df"

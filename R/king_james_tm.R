@@ -14,4 +14,4 @@
 #'   \item{Testament}{Testament to which book belongs}
 #' }
 #' @source \url{http://www.sacred-texts.com/bib/osrc/}
-"kingjamestm"
+"king_james_tm"

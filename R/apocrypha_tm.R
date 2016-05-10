@@ -13,4 +13,4 @@
 #'   \item{Full.Title.Auth.V}{Book title in authorized version}
 #' }
 #' @source \url{http://www.sacred-texts.com/bib/osrc/}
-"apocryphatm"
+"apocrypha_tm"

@@ -2,7 +2,7 @@
 #'
 #' A dataset containing all books of the King James Bible for reference.
 #'
-#' @format A data frame with 31102 rows and 6 variables:
+#' @format A data frame with 31102 rows and 7 variables:
 #' \describe{
 #'   \item{Book.Abbreviation}{Abbreviation of book title}
 #'   \item{King.James.Bible}{Book title in King James Bible}
@@ -10,6 +10,7 @@
 #'   \item{Douay.Rheims}{Book title in Douay Rheims version}
 #'   \item{Full.Title.Auth.V}{Book title in authorized version}
 #'   \item{Testament}{Testament to which book belongs}
+#'   \item{Book.Number}{Book sequence as appears in King James Bible}
 #' }
 #' @source \url{http://www.sacred-texts.com/bib/osrc/}
-"kingjamesbooks"
+"king_james_books"
