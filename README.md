@@ -47,8 +47,7 @@ knitr::kable(head(king_james_df, 3))
 ### Corpus
 
 ``` r
-library(tm)
-meta(king_james_tm[[1]])
+tm::meta(king_james_tm[[1]])
 ```
 
     ##   id               : 1
@@ -90,8 +89,7 @@ knitr::kable(head(apocrypha_df, 3))
 ### Corpus
 
 ``` r
-library(tm)
-meta(apocrypha_tm[[1]]) # Aprocrypha
+tm::meta(apocrypha_tm[[1]]) # Aprocrypha
 ```
 
     ##   id               : 1
