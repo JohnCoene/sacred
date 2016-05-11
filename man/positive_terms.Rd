@@ -4,7 +4,7 @@
 \name{positive_terms}
 \alias{positive_terms}
 \title{Middle English positive terms}
-\format{a character vector of positive words}
+\format{a character vector of 48 positive words}
 \usage{
 positive_terms
 }

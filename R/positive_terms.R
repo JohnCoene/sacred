@@ -3,5 +3,5 @@
 #' A character vector of Middle English positive terms suitable for sentiment
 #' analysis.
 #'
-#' @format a character vector of positive words
+#' @format a character vector of 48 positive words
 "positive_terms"

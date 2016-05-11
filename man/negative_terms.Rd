@@ -4,7 +4,7 @@
 \name{negative_terms}
 \alias{negative_terms}
 \title{Middle English negative terms}
-\format{a character vector of negative words}
+\format{a character vector of 41 negative words}
 \usage{
 negative_terms
 }
