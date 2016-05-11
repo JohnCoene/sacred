@@ -47,7 +47,7 @@ knitr::kable(head(king_james_df, 3))
 
 ``` r
 library(tm)
-meta(king)_james_tm[[1]])
+meta(king_james_tm[[1]])
 ```
 
     ##   id               : 1
