@@ -2,10 +2,10 @@
 # ============================= BIBLE =================================== #
 # from http://www.sacred-texts.com/bib/osrc/
 bible <- readLines("kjvdat.txt")
-kingjamesraw <- bible # keep raw
-
 # remove tilda
 bible <- gsub(".~", ".", bible)
+
+kingjamesraw <- bible # keep raw
 
 # extract verse
 verse <- regmatches(bible, gregexpr("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|",
@@ -113,7 +113,7 @@ middle_english_stopwords <- c("and", "that", "to", "i", "for", "of", "the", "in"
                               "at", "wolde", "wol", "were", "out", "thing", "more", "shall",
                               "unto", "upon", "hath", "came", "come", "one", "also", "shalt",
                               "let", "made", "went", "even", "saith", "hast", "say", "thine",
-                              "forth", "art", "yea")
+                              "forth", "art", "yea", "thy", "thee", "upon", "thine", "thou")
 
 middle_english_stopwords <- sort(middle_english_stopwords)
 
