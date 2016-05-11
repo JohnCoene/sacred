@@ -7,12 +7,12 @@ bibler
 
 Include 6 datasets related to the Bible:
 
-1. `kingjamesdf` The King James Bible as data.frame
-2. `kingjamestm` The King James Bible as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
-3. `kingjamesbooks` List of books that constitute the King James Bible
-4. `apocryphadf` The Apocrypha as data.frame
-5. `apocryphatm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
-6. `apocryphabooks` List of books that constitute the Apocrypha
+1. `king_james_df` The King James Bible as data.frame
+2. `king_james_tm` The King James Bible as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+3. `king_james_books` List of books that constitute the King James Bible
+4. `apocrypha_df` The Apocrypha as data.frame
+5. `apocrypha_tm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+6. `apocrypha_books` List of books that constitute the Apocrypha
 7. `middle_english_stopwords` List of 97 Middle English stopwords
 8. `positive_terms` and `negative_terms` Middle English opinion lexicons
 
@@ -22,7 +22,7 @@ King James
 ### Books
 
 ``` r
-knitr::kable(head(kingjamesbooks, 3)) 
+knitr::kable(head(king_james_books, 3)) 
 ```
 
 | Book.Abbreviation | King.James.Bible | Vulgate   | Douay.Rheims | Full.Title.Auth.V                         | Testament     |
@@ -34,7 +34,7 @@ knitr::kable(head(kingjamesbooks, 3))
 ### Data frame
 
 ``` r
-knitr::kable(head(kingjamesdf, 3)) 
+knitr::kable(head(king_james_df, 3)) 
 ```
 
 | Book.Abbreviation | King.James.Bible | Vulgate | Douay.Rheims | Full.Title.Auth.V                       | Testament     | Verse    | Text                                                                                                                                            |
@@ -47,12 +47,7 @@ knitr::kable(head(kingjamesdf, 3))
 
 ``` r
 library(tm)
-```
-
-    ## Loading required package: NLP
-
-``` r
-meta(kingjamestm[[1]])
+meta(king)_james_tm[[1]])
 ```
 
     ##   id               : 1
@@ -70,7 +65,7 @@ Apocrypha
 ### Books
 
 ``` r
-knitr::kable(head(apocryphabooks, 3))
+knitr::kable(head(apocrypha_books, 3))
 ```
 
 | Book.Abbreviation | King.James.Bible | Vulgate  | Douay.Rheims | Full.Title.Auth.V         |
@@ -82,7 +77,7 @@ knitr::kable(head(apocryphabooks, 3))
 ### Data frame
 
 ``` r
-knitr::kable(head(apocryphadf, 3))
+knitr::kable(head(apocrypha_df, 3))
 ```
 
 | Book.Abbreviation | King.James.Bible | Vulgate  | Douay.Rheims | Full.Title.Auth.V        | Verse    | Text                                                                                                                                                                                                              |
@@ -95,7 +90,7 @@ knitr::kable(head(apocryphadf, 3))
 
 ``` r
 library(tm)
-meta(apocryphatm[[1]]) # Aprocrypha
+meta(apocrypha_tm[[1]]) # Aprocrypha
 ```
 
     ##   id               : 1
