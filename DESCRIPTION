@@ -11,5 +11,7 @@ License: MIT + file LICENSE
 LazyData: TRUE
 RoxygenNote: 5.0.1
 Depends: R (>= 2.10)
-Suggests: tm,
-    covr
+Suggests:
+    tm,
+    covr,
+    testthat
