@@ -7,12 +7,14 @@ bibler
 
 Include 6 datasets related to the Bible:
 
-1.  `kingjamesdf` The King James Bible as data.frame
-2.  `kingjamestm` The King James Bible as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
-3.  `kingjamesbooks` List of books that constitute the King James Bible
-4.  `apocryphadf` The Apocrypha as data.frame
-5.  `apocryphatm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
-6.  `apocryphabooks` List of books that constitute the Apocrypha
+1. `kingjamesdf` The King James Bible as data.frame
+2. `kingjamestm` The King James Bible as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+3. `kingjamesbooks` List of books that constitute the King James Bible
+4. `apocryphadf` The Apocrypha as data.frame
+5. `apocryphatm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
+6. `apocryphabooks` List of books that constitute the Apocrypha
+7. `middle_english_stopwords` List of 97 Middle English stopwords
+8. `positive_terms` and `negative_terms` Middle English opinion lexicons
 
 King James
 ----------
