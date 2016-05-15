@@ -4,4 +4,4 @@
 #' analysis.
 #'
 #' @format a character vector of 48 positive words
-"positive_terms"
+"middle_english_positive"

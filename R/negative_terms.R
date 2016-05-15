@@ -4,4 +4,4 @@
 #' analysis.
 #'
 #' @format a character vector of 41 negative words
-"negative_terms"
+"middle_english_negative"
