@@ -40,5 +40,5 @@ test_that("terms", {
   data("middle_english_negative")
 
   expect_equal(length(middle_english_positive), 48)
-  expect_equal(length(middle_english_negative), 41)
+  expect_equal(length(middle_english_negative), 42)
 })
