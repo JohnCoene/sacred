@@ -36,9 +36,9 @@ test_that("terms", {
   data("middle_english_stopwords")
   expect_equal(length(middle_english_stopwords), 97)
 
-  data("positive_terms")
-  data("negative_terms")
+  data("middle_english_positive")
+  data("middle_english_negative")
 
-  expect_equal(length(positive_terms), 48)
-  expect_equal(length(negative_terms), 41)
+  expect_equal(length(middle_english_positive), 48)
+  expect_equal(length(middle_english_negative), 41)
 })
