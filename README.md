@@ -15,7 +15,7 @@ Include 6 datasets related to the Bible:
 5. `apocrypha_tm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
 6. `apocrypha_books` List of books that constitute the Apocrypha
 7. `middle_english_stopwords` List of 97 Middle English stopwords
-8. `positive_terms` and `negative_terms` Middle English opinion lexicons
+8. `middle_english_positive` and `middle_english_negative` Middle English opinion lexicons
 
 King James
 ----------

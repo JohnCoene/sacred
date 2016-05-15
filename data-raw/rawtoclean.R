@@ -134,8 +134,8 @@ neg_words <- c("evil", "devil", "sin", "filth", "judah", "canaan", "heathen",
                "grievous", "povr", "schatered", "sorwful", "sorrow",
                "miserable", "sad", "untrewe", "welke")
 
-negative_terms <- sort(neg_words)
-positive_terms <- sort(pos_words)
+middle_english_negative <- sort(neg_words)
+middle_english_positive <- sort(pos_words)
 
 king_james_df <- kingjamesdf
 king_james_tm <- kingjamestm
@@ -148,5 +148,5 @@ apocrypha_books <- apocryphabooks
 devtools::use_data(king_james_df, king_james_tm, king_james_books,
                    apocrypha_df, apocrypha_tm, apocrypha_books,
                    middle_english_stopwords,
-                   negative_terms, positive_terms,
+                   middle_english_negative, middle_english_positive,
                    overwrite = TRUE)
