@@ -15,7 +15,7 @@ table <- data.frame(Verse = as.vector(do.call("rbind", verse)),
                     book.abbrev = as.vector(do.call("rbind", books)),
                     stringsAsFactors = FALSE)
 # remove verses for clean version
-kingjamesclean <- gsub("^[A-Z][a-z][a-z]+\\|[0-9]+\\|[0-9]+\\| ", "",
+kingjamesclean <- gsub("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\| ", "",
                        kingjamesraw)
 
 # books
@@ -66,7 +66,7 @@ table <- data.frame(Verse = as.vector(do.call("rbind", verse)),
                     book.abbrev = as.vector(do.call("rbind", books)),
                     stringsAsFactors = FALSE)
 # remove verses for clean version
-apocryphaclean <- gsub("^[A-Z][a-z][a-z]+\\|[0-9]+\\|[0-9]+\\| ", "",
+apocryphaclean <- gsub("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|", "",
                        apocrypharaw)
 
 # books
@@ -132,7 +132,7 @@ neg_words <- c("evil", "devil", "sin", "filth", "judah", "canaan", "heathen",
                "dedly", "desirous", "drasty", "fayr", "feble", "forolded",
                "horrible", "leene", "lewede", "loth", "mansed", "newsome",
                "grievous", "povr", "schatered", "sorwful", "sorrow",
-               "miserable", "sad", "untrewe", "welke")
+               "miserable", "sad", "untrewe", "welke", "profane")
 
 middle_english_negative <- sort(neg_words)
 middle_english_positive <- sort(pos_words)
