@@ -1,5 +1,5 @@
 
-[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/bibler.svg?branch=master)](https://travis-ci.org/JohnCoene/bibler) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/bibler?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/bibler)
+[![Travis-CI Build Status](https://travis-ci.org/JohnCoene/bibler.svg?branch=master)](https://travis-ci.org/JohnCoene/bibler) [![Build status](https://ci.appveyor.com/api/projects/status/fgqivf16f1u7jrug/branch/master?svg=true)](https://ci.appveyor.com/project/JohnCoene/bibler/branch/master)
 
 ![wordcloud](https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/img/modals/bibler.JPG)
 
