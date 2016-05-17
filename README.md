@@ -112,18 +112,27 @@ Utils
 ### Stopwords
 
 ``` r
-head(middle_english_stopwords, 10)
+head(middle_english_stopwords, 15)
 ```
 
-    ##  [1] "a"    "al"   "also" "and"  "art"  "as"   "at"   "be"   "but"  "by"
+    ##  [1] "a"    "al"   "also" "and"  "art"  "as"   "at"   "be"   "but"  "by"  
+    ## [11] "came" "come" "eek"  "even" "for"
 
 ### Lexicons
 
 ``` r
-head(middle_english_negative)
+head(middle_english_negative, 10) # negative
 ```
 
-    ## [1] "a-ferd" "abaist" "abawed" "adrad"  "adred"  "aferd"
+    ##  [1] "a-ferd"  "abaist"  "abawed"  "adrad"   "adred"   "aferd"   "angry"  
+    ##  [8] "bittre"  "blemish" "canaan"
+
+``` r
+tail(middle_english_positive, 10) # positive
+```
+
+    ##  [1] "trewe"    "trewely"  "trouthe"  "truth"    "truthe"   "valour"  
+    ##  [7] "verray"   "verre"    "vertuous" "virtue"
 
 Project Vault
 =============
