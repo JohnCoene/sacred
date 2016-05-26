@@ -15,7 +15,7 @@ Include 6 datasets related to the Bible:
 5.  `apocrypha_tm` The Apocrypha as [tm](https://cran.r-project.org/package=tm) corpus (`c("VCorpus", "Corpus"`)
 6.  `apocrypha_books` List of books that constitute the Apocrypha
 
-install
+Install
 =======
 
 ``` r
@@ -25,7 +25,7 @@ devtools::install_github("JohnCoene/bibler")
 Examples
 ========
 
-[examples](http://johncoene.github.io/projects/ex/bibler.html)
+Vignette~ish document and examples can be found [here](http://johncoene.github.io/projects/ex/bibler.html)
 
 King James
 ----------
