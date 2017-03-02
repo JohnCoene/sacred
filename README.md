@@ -1,7 +1,7 @@
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/bibler.svg?branch=master)](https://travis-ci.org/JohnCoene/bibler) [![Build status](https://ci.appveyor.com/api/projects/status/fgqivf16f1u7jrug/branch/master?svg=true)](https://ci.appveyor.com/project/JohnCoene/bibler/branch/master)
 
-![wordcloud](https://raw.githubusercontent.com/JohnCoene/projects/gh-pages/img/modals/bibler.JPG)
+![wordcloud](http://john-coene.com/img/bibler.png)
 
 bibler
 ======
@@ -22,10 +22,10 @@ Install
 devtools::install_github("JohnCoene/bibler")
 ```
 
-Examples
+Examples & Docs
 ========
 
-Vignette~ish document and examples can be found [here](http://johncoene.github.io/projects/ex/bibler.html)
+Vignette~ish document and examples can be found [here](http://john-coene.com/packages/bibler/)
 
 King James
 ----------
