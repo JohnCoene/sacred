@@ -30,7 +30,7 @@ Vignette~ish document and examples can be found [here](http://john-coene.com/pac
 King James
 ----------
 
-### Books
+#### Books
 
 ``` r
 knitr::kable(head(king_james_books, 3)) 
@@ -42,7 +42,7 @@ knitr::kable(head(king_james_books, 3))
 | Exo               | Exodus           | Exodus    | Exodus       | The Second Book of Moses, called Exodus   | Old Testament |            2|
 | Lev               | Leviticus        | Leviticus | Leviticus    | The Third Book of Moses, called Leviticus | Old Testament |            3|
 
-### Data frame
+#### Data frame
 
 ``` r
 knitr::kable(head(king_james_df, 3)) 
@@ -54,7 +54,7 @@ knitr::kable(head(king_james_df, 3))
 | Gen               | Genesis          | Genesis | Genesis      | The First Book of Moses, called Genesis | Old Testament |            1| Gen|1|2| | And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters. |
 | Gen               | Genesis          | Genesis | Genesis      | The First Book of Moses, called Genesis | Old Testament |            1| Gen|1|3| | And God said, Let there be light: and there was light.                                                                                         |
 
-### Corpus
+#### Corpus
 
 ``` r
 library(tm)
@@ -79,7 +79,7 @@ meta(king_james_tm[[1]])
 Apocrypha
 ---------
 
-### Books
+#### Books
 
 ``` r
 knitr::kable(head(apocrypha_books, 3))
@@ -91,7 +91,7 @@ knitr::kable(head(apocrypha_books, 3))
 | Es2               | 2 Esdras         | 4 Esdrae | 4 Esdras     | The Second Book of Esdras |
 | Tob               | Tobit            | Tobiae   | Tobias       | Tobit                     |
 
-### Data frame
+#### Data frame
 
 ``` r
 knitr::kable(head(apocrypha_df, 3))
@@ -103,7 +103,7 @@ knitr::kable(head(apocrypha_df, 3))
 | Es1               | 1 Esdras         | 3 Esdrae | 3 Esdras     | The First Book of Esdras | Es1|1|2| | Es1|1|2|Having set the priests according to their daily courses, being arrayed in long garments, in the temple of the Lord.                                                                                       |
 | Es1               | 1 Esdras         | 3 Esdrae | 3 Esdras     | The First Book of Esdras | Es1|1|3| | Es1|1|3|And he spake unto the Levites, the holy ministers of Israel, that they should hallow themselves unto the Lord, to set the holy ark of the Lord in the house that king Solomon the son of David had built: |
 
-### Corpus
+#### Corpus
 
 ``` r
 library(tm)
@@ -121,7 +121,7 @@ meta(apocrypha_tm[[1]]) # Aprocrypha
 Utils
 -----
 
-### Stopwords
+#### Stopwords
 
 ``` r
 head(middle_english_stopwords, 15)
@@ -130,7 +130,7 @@ head(middle_english_stopwords, 15)
     ##  [1] "a"    "al"   "also" "and"  "art"  "as"   "at"   "be"   "but"  "by"  
     ## [11] "came" "come" "eek"  "even" "for"
 
-### Lexicons
+#### Lexicons
 
 ``` r
 head(middle_english_negative, 10) # negative
@@ -146,7 +146,3 @@ tail(middle_english_positive, 10) # positive
     ##  [1] "trewe"    "trewely"  "trouthe"  "truth"    "truthe"   "valour"  
     ##  [7] "verray"   "verre"    "vertuous" "virtue"
 
-Project Vault
-=============
-
-See my other projects at <http://johncoene.github.io/projects/>
