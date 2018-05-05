@@ -1,107 +1,62 @@
+# source: http://www.sacred-texts.com/bib/osrc/
+
+# define function
+sacred_to_tibble <- function(path){
+  # from http://www.sacred-texts.com/bib/osrc/
+  bible <- readLines(path)
+  
+  bible <- bible[which(bible != "")]
+  
+  # remove tilda
+  bible <- gsub(".~", ".", bible)
+  
+  # extract verse
+  verse <- regmatches(
+    bible, 
+    gregexpr("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|", bible)
+  )
+  
+  # get book abbrv
+  books <- regmatches(
+    bible, 
+    gregexpr("^[[:alnum:]]+", bible)
+  ) 
+  
+  verses <- gsub("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|", "", bible)
+  
+  df <- tibble::tibble(
+    verse = tolower(as.vector(do.call("rbind", verse))),
+    book = tolower(as.vector(do.call("rbind", books))),
+    text = trimws(verses)
+  )
+  df
+}
 
 # ============================= BIBLE =================================== #
-# from http://www.sacred-texts.com/bib/osrc/
-bible <- readLines("kjvdat.txt")
-# remove tilda
-bible <- gsub(".~", ".", bible)
 
-kingjamesraw <- bible # keep raw
-
-# extract verse
-verse <- regmatches(bible, gregexpr("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|",
-                                   bible))
-books <- regmatches(bible, gregexpr("^[[:alnum:]]+",bible)) # get book abbrv
-table <- data.frame(Verse = as.vector(do.call("rbind", verse)),
-                    book.abbrev = as.vector(do.call("rbind", books)),
-                    stringsAsFactors = FALSE)
-# remove verses for clean version
-kingjamesclean <- gsub("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\| ", "",
-                       kingjamesraw)
-
-# books
-wb <- XLConnect::loadWorkbook("kingjamesbooks.xls")
-kingjamesbooks <- XLConnect::readWorksheet(wb, 1)
-
-all <- dplyr::left_join(kingjamesbooks, table,
-                        by = c("Book.Abbreviation" = "book.abbrev"))
-
-library(tm)
-# to tm::Corpus
-x <- data.frame(txt = kingjamesclean)
-corpus <- Corpus(VectorSource(x$txt))
-# add meta-data
-for (i in 1:length(verse)) {
-  meta(corpus[[i]], tag = "author") <- NULL
-  meta(corpus[[i]], tag = "datetimestamp") <- NULL
-  meta(corpus[[i]], tag = "description") <- NULL
-  meta(corpus[[i]], tag = "heading") <- NULL
-  meta(corpus[[i]], tag = "language") <- NULL
-  meta(corpus[[i]], tag = "origin") <- "http://www.sacred-texts.com/bib/osrc/"
-  meta(corpus[[i]], tag = "Book.Abbreviation") <- all$Abbreviation[i]
-  meta(corpus[[i]], tag = "Verse") <- all$Verse[i]
-  meta(corpus[[i]], tag = "King.James.Bible") <- all$King.James.Bible[i]
-  meta(corpus[[i]], tag = "Vulgate") <- all$Vulgate[i]
-  meta(corpus[[i]], tag = "Douay.Reihms") <- all$Douay.Rheims[i]
-  meta(corpus[[i]], tag = "Full.Title.Auth.V") <- all$Full.Title.Auth.V[i]
-  meta(corpus[[i]], tag = "Testament") <- all$Testament[i]
-  meta(corpus[[i]], tag = "Book.Number") <- all$Book.Number[i]
-}
-kingjamestm <- corpus
-
-all$Text <- kingjamesclean
-
-kingjamesdf <- all
+king_james_version <- sacred_to_tibble("./data-raw/kjvdat.txt")
 
 # ============================= APOCRYPHA =================================== #
-apoc <- readLines("apodat.txt")
 
-apoc <- apoc[which(apoc != "")]
+apocrypha <- sacred_to_tibble("./data-raw/apodat.txt")
 
-apocrypharaw <- apoc # keep raw
-# extract verse
-verse <- regmatches(apoc, gregexpr("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|",
-                                    apoc))
-books <- regmatches(apoc, gregexpr("^[[:alnum:]]+",apoc)) # get book abbrv
-table <- data.frame(Verse = as.vector(do.call("rbind", verse)),
-                    book.abbrev = as.vector(do.call("rbind", books)),
-                    stringsAsFactors = FALSE)
-# remove verses for clean version
-apocryphaclean <- gsub("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|", "",
-                       apocrypharaw)
+# ============================= SEPTUAGINT =================================== #
 
-# books
-wb <- XLConnect::loadWorkbook("apocryphabooks.xls")
-apocryphabooks <- XLConnect::readWorksheet(wb, 1)
+septuagint <- sacred_to_tibble("./data-raw/sept.txt")
 
-all <- dplyr::left_join(apocryphabooks, table,
-                        by = c("Book.Abbreviation" = "book.abbrev"))
+# ============================= GREEK NEW TESTAMENT =================================== #
 
-library(tm)
-# to tm::Corpus
-x <- data.frame(txt = apocryphaclean)
-corpus <- Corpus(VectorSource(x$txt))
-# add meta-data
-for (i in 1:length(verse)) {
-  meta(corpus[[i]], tag = "author") <- NULL
-  meta(corpus[[i]], tag = "datetimestamp") <- NULL
-  meta(corpus[[i]], tag = "description") <- NULL
-  meta(corpus[[i]], tag = "heading") <- NULL
-  meta(corpus[[i]], tag = "language") <- NULL
-  meta(corpus[[i]], tag = "origin") <- "http://www.sacred-texts.com/bib/osrc/"
-  meta(corpus[[i]], tag = "Book.Abbreviation") <- all$Abbreviation[i]
-  meta(corpus[[i]], tag = "Verse") <- all$Verse[i]
-  meta(corpus[[i]], tag = "King.James.Bible") <- all$King.James.Bible[i]
-  meta(corpus[[i]], tag = "Vulgate") <- all$Vulgate[i]
-  meta(corpus[[i]], tag = "Douay.Reihms") <- all$Douay.Rheims[i]
-  meta(corpus[[i]], tag = "Full.Title.Auth.V") <- all$Full.Title.Auth.V[i]
-}
-apocryphatm <- corpus
+greek_new_testament <- sacred_to_tibble("./data-raw/gntdat.txt")
 
-all$Text <- apocryphaclean
+# ============================= TANACH =================================== #
 
-apocryphadf <- all
+tanach <- sacred_to_tibble("./data-raw/t3utfdat.txt")
 
-# ===============
+# ============================= VULGATE =================================== #
+
+vulgate <- sacred_to_tibble("./data-raw/vuldat.txt")
+
+# ============================= MIDDLE ENGLISH SW =================================== #
 
 middle_english_stopwords <- c("and", "that", "to", "i", "for", "of", "the", "in", "he", "his",
                               "this", "hir", "a", "as", "it", "so", "al", "is", "him", "but",
@@ -113,9 +68,239 @@ middle_english_stopwords <- c("and", "that", "to", "i", "for", "of", "the", "in"
                               "at", "wolde", "wol", "were", "out", "thing", "more", "shall",
                               "unto", "upon", "hath", "came", "come", "one", "also", "shalt",
                               "let", "made", "went", "even", "saith", "hast", "say", "thine",
-                              "forth", "art", "yea", "thy", "thee", "upon", "thine", "thou")
+                              "forth", "art", "yea", "thy", "thee", "upon", "thine", "thou",
+                              'and',
+                              'on',
+                              'þonne',
+                              'wið', 
+                              'to',
+                              'þæt',
+                              'þe',
+                              'ne',
+                              'ic',
+                              'me',
+                              'heo',
+                              'him',
+                              'he',
+                              'swa',
+                              'þis',
+                              'mid',
+                              'þu',
+                              'ofer',
+                              'his',
+                              'þriwa',
+                              'seo',
+                              'hit',
+                              'se',
+                              'þas',
+                              'cweð',
+                              'þæs',
+                              'in',
+                              'sy',
+                              'ða',
+                              'ðy',
+                              'ær',
+                              'ðonne',
+                              'næfre',
+                              'þone',
+                              'ge',
+                              'ðas',
+                              'þære',
+                              'þam',
+                              'is' ,
+                              'of',
+                              'gif',
+                              'þæm',
+                              'nu',
+                              'under',
+                              'wiþ',
+                              'geond',
+                              'æfter',
+                              'ðis',
+                              'do',
+                              'hwæt',
+                              'her',
+                              'þurh',
+                              'þus',
+                              'lytel',
+                              'æt',
+                              'ðin',
+                              'willian',
+                              'cume',
+                              'þeos',
+                              'þara',
+                              'are',
+                              'cuman',
+                              'com',
+                              'ænig',
+                              'þon',
+                              'for',
+                              'us',
+                              'ac',
+                              'bot',
+                              'ende',
+                              'wæs',
+                              'wǣre',
+                              'wes',
+                              'wǣron',
+                              'wǣren',
+                              'wesað',
+                              'ic',
+                              'wit',
+                              'wē',
+                              'mīn',
+                              'uncer',
+                              'ūser',
+                              'ūre',
+                              'mē',
+                              'unc',
+                              'ūs',
+                              'mec',
+                              'uncit',
+                              'ūsic',
+                              'ðū',
+                              'git',
+                              'gē',
+                              'ðīn',
+                              'incer',
+                              'ēower', 
+                              'ēowre',
+                              'ðē',
+                              'inc',
+                              'ēow',
+                              'ðec',
+                              'incit',
+                              'ēowic',
+                              'hē',
+                              'hēo', 
+                              'hīe',
+                              'hit', 
+                              'hyt',
+                              'hī', 
+                              'hȳ',
+                              'hire',
+                              'hira', 
+                              'heora', 
+                              'hiera',
+                              'heom',
+                              'hine',
+                              'nǣr',
+                              'nǣfre',
+                              'nǣnig',
+                              'nolde',
+                              'noldon',
+                              'be',
+                              'beforan',
+                              'betweox',
+                              'for',
+                              'from',
+                              'fram',
+                              'mid',
+                              'tō',
+                              'geond',
+                              'oð',
+                              'þurh',
+                              'ofer',
+                              'under',
+                              'bēo',
+                              'bist',
+                              'biþ',
+                              'bēoþ',
+                              'bēon',
+                              'ēom',
+                              'sīe',
+                              'eart',
+                              'sī',
+                              'is',
+                              'sēo',
+                              'sindon',
+                              'sint',
+                              'nēom',
+                              'neart',
+                              'nis',
+                              'sīo',
+                              'ðæt', 
+                              'tæt',
+                              'ðæs',
+                              'ðǣre',
+                              'ðǣm', 
+                              'ðām',
+                              'ðone',
+                              'ðā',
+                              'ðȳ', 
+                              'ðē', 
+                              'ðon',
+                              'ðāra', 
+                              'ðǣra',
+                              'ðes',
+                              'ðēos',
+                              'ðisse', 
+                              'ðeosse',
+                              'ðises',
+                              'ðisses',
+                              'ðisum',
+                              'ðissum',
+                              'ðisne',
+                              'ðās',
+                              'ðīs',
+                              'ðȳs',
+                              'ðissa', 
+                              'ðeossa',
+                              'ðeosum',
+                              'ðeossum',
+                              'twēgen',
+                              'twā',
+                              'tū',
+                              'twēgra',
+                              'twǣm',
+                              'þrīe',
+                              'þrēo',
+                              'þrēora',
+                              'þrīm',
+                              'endlefan',
+                              'twelf',
+                              'twēntig',
+                              'þrēotīene',
+                              'þrītig',
+                              'fēower',
+                              'fēowertīene',
+                              'fēowertig',
+                              'fīf',
+                              'fīftīene',
+                              'fīftig',
+                              'siex',
+                              'siextīene',
+                              'siextig',
+                              'seofon',
+                              'seofontīene',
+                              'seofontig',
+                              'eahta',
+                              'eahtatīene',
+                              'eahtatig',
+                              'nigon',
+                              'nigontīene',
+                              'nigontig',
+                              'tīen',
+                              'hund',
+                              'gā',
+                              'gǣst',
+                              'gǣð',
+                              'gāð',
+                              'gān',
+                              'gānde',
+                              'gangende',
+                              'gegān',
+                              'ēode',
+                              'ēodest',
+                              'ēodon',
+                              'ēoden')
 
-middle_english_stopwords <- sort(middle_english_stopwords)
+middle_english_stopwords <- sort(unique(middle_english_stopwords))
+
+middle_english_stopwords <- tibble::tibble(
+  word = middle_english_stopwords,
+  lexicon = "MIDDLE ENGLISH"
+)
 
 pos_words <- c("holy", "heaven", "peace", "grace", "valour", "gladness",
                "amydable", "anfald", "beste", "bilewit", "blisful", "courteys",
@@ -137,16 +322,24 @@ neg_words <- c("evil", "devil", "sin", "filth", "judah", "canaan", "heathen",
 middle_english_negative <- sort(neg_words)
 middle_english_positive <- sort(pos_words)
 
-king_james_df <- kingjamesdf
-king_james_tm <- kingjamestm
-king_james_books <- kingjamesbooks
+middle_english_sentiments <- tibble::tibble(
+  word = c(
+    middle_english_positive, middle_english_negative
+  ),
+  sentiment = c(
+    rep("positive", length(middle_english_positive)),
+    rep("negative", length(middle_english_negative))
+  )
+)
 
-apocrypha_df <- apocryphadf
-apocrypha_tm <- apocryphatm
-apocrypha_books <- apocryphabooks
-
-devtools::use_data(king_james_df, king_james_tm, king_james_books,
-                   apocrypha_df, apocrypha_tm, apocrypha_books,
-                   middle_english_stopwords,
-                   middle_english_negative, middle_english_positive,
-                   overwrite = TRUE)
+devtools::use_data(
+  king_james_version,
+  apocrypha,
+  septuagint,
+  greek_new_testament,
+  tanach,
+  vulgate,
+  middle_english_stopwords,
+  middle_english_sentiments,
+  overwrite = TRUE
+)

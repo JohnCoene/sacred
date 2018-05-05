@@ -1,44 +1,41 @@
-library(bibler)
-library(tm)
+library(sacred)
 
-test_that("KJ", {
-  data("king_james_df")
+test_that("King James version", {
+  data("king_james_version")
 
-  expect_equal(ncol(king_james_df), 9)
-  expect_equal(nrow(king_james_df), 31102)
-
-  data("king_james_tm")
-
-  expect_equal(nrow(king_james_df), length(king_james_tm))
-  expect_equal(length(meta(king_james_tm[[1]])), ncol(king_james_df))
-
-  expect_equal(nrow(king_james_books), 66)
-  expect_equal(ncol(king_james_books), 7)
+  expect_equal(ncol(king_james_version), 3)
+  expect_equal(nrow(king_james_version), 31102)
 })
 
-test_that("apocrypha", {
-  data("apocrypha_df")
+test_that("Apocrypha", {
+  data("apocrypha")
 
-  expect_equal(ncol(apocrypha_df), 7)
-  expect_equal(nrow(apocrypha_df), 5725)
-
-  data("apocrypha_tm")
-
-  expect_equal(nrow(apocrypha_df), length(apocrypha_tm))
-  expect_equal(length(meta(apocrypha_tm[[1]])), ncol(apocrypha_df))
-
-  expect_equal(nrow(apocrypha_books), 16)
-  expect_equal(ncol(apocrypha_books), 5)
+  expect_equal(ncol(apocrypha), 3)
+  expect_equal(nrow(apocrypha), 5725)
 })
 
+test_that("Greek New Testament", {
+  data("greek_new_testament")
+  expect_equal(nrow(greek_new_testament), 7958)
+})
+
+test_that("Septuagint", {
+  data("septuagint")
+  expect_equal(nrow(septuagint), 30374)
+})
+
+test_that("Tanach", {
+  data("tanach")
+  expect_equal(nrow(tanach), 23213)
+})
+
+test_that("Vulgate", {
+  data("vulgate")
+  expect_equal(nrow(vulgate), 35811)
+})
 
 test_that("terms", {
   data("middle_english_stopwords")
-  expect_equal(length(middle_english_stopwords), 97)
-
-  data("middle_english_positive")
-  data("middle_english_negative")
-
-  expect_equal(length(middle_english_positive), 48)
-  expect_equal(length(middle_english_negative), 42)
+  expect_equal(nrow(middle_english_stopwords), 295)
+  expect_equal(nrow(middle_english_sentiments), 90)
 })

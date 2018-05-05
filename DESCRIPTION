@@ -1,17 +1,17 @@
-Package: bibler
+Package: sacred
 Type: Package
-Title: Bible related data
+Title: Set of Sacred Texts Bible Data in Tidy Format
 Version: 0.1.0
 Authors@R: c(
     person("John", "Coene", , "jcoenep@gmail.com", role = c("aut", "cre")))
 Maintainer: John Coene <jcoenep@gmail.com>
-Description: All 66 books comprising King James Bible and the Apocrypha as well
+Description: All 66 books comprising of the 'Apocrypha', the 'King James Bible', 
+    the 'Greek New Testament', the 'Septuagint', the 'Tanach' and the 'Vulgate', as well
     as text mining utilities suited to Middle English.
 License: MIT + file LICENSE
 LazyData: TRUE
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Depends: R (>= 2.10)
+Imports: tibble
 Suggests:
-    tm,
-    covr,
     testthat

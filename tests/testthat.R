@@ -1,4 +1,4 @@
 library(testthat)
-library(bibler)
+library(sacred)
 
-test_check("bibler")
+test_check("sacred")

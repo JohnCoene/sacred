@@ -4,12 +4,18 @@
 \name{middle_english_stopwords}
 \alias{middle_english_stopwords}
 \title{Middle English stopwords.}
-\format{A character vector of 88 term.}
+\format{A \link[tibble]{tibble} with 295 rows and 2 variables:
+\describe{
+  \item{word}{ term}
+  \item{lexicon}{ Middle English}
+}}
+\source{
+\href{https://github.com/cltk/cltk/blob/da1b58838005a76c7f7ce239b23b17f4447df1d2/cltk/stop/old_english/stops.py}{Classical Language Toolkit}
+}
 \usage{
 middle_english_stopwords
 }
 \description{
-A character vector of 92 Middle English stopwords.
+A dataset containing Middle English stopwords.
 }
 \keyword{datasets}
-

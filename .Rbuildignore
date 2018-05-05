@@ -3,10 +3,12 @@
 ^data-raw$
 ^kjvdat\.txt$
 ^apodat\.txt$
-^kingjamesbooks\.xls$
-^apocryphabooks\.xls$
+^gntdat\.txt$
 ^README\.Rmd$
 ^README-.*\.png$
 ^\.travis\.yml$
 ^revdep$
 ^appveyor\.yml$
+sept.txt
+t3utf.dat
+vuldat.txt
