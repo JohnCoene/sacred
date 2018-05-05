@@ -4,10 +4,11 @@
 \name{vulgate}
 \alias{vulgate}
 \title{The Vulgate.}
-\format{A \link[tibble]{tibble} with 35,811 rows and 3 variables:
+\format{A \link[tibble]{tibble} with 35,811 rows and 4 variables:
 \describe{
-  \item{verse}{ Verse}
   \item{book}{ Book name}
+  \item{pslam}{ Psalm}
+  \item{verse}{ Verse}
   \item{text}{ Text of verse}
 }}
 \source{

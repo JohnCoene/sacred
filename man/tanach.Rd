@@ -4,10 +4,11 @@
 \name{tanach}
 \alias{tanach}
 \title{The Tanach.}
-\format{A \link[tibble]{tibble} with 23,213 rows and 3 variables:
+\format{A \link[tibble]{tibble} with 23,213 rows and 4 variables:
 \describe{
-  \item{verse}{ Verse}
   \item{book}{ Book name}
+  \item{pslam}{ Psalm}
+  \item{verse}{ Verse}
   \item{text}{ Text of verse}
 }}
 \source{

@@ -2,7 +2,6 @@
 
 # define function
 sacred_to_tibble <- function(path){
-  # from http://www.sacred-texts.com/bib/osrc/
   bible <- readLines(path)
   
   bible <- bible[which(bible != "")]
@@ -20,15 +19,23 @@ sacred_to_tibble <- function(path){
   books <- regmatches(
     bible, 
     gregexpr("^[[:alnum:]]+", bible)
-  ) 
+  )
   
   verses <- gsub("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|", "", bible)
+  verses <- tolower(verses)
+  
+  id = gsub("\\|[[:digit:]]+\\|$", "", verse)
+  psalm = gsub("[[:alpha:]]+|[[:punct:]]+", "", id)
+  verse <- gsub("^[[:alnum:]]+\\|[[:digit:]]+\\|", "", verse)
+  verse <- gsub("\\|", "", verse)
   
   df <- tibble::tibble(
-    verse = tolower(as.vector(do.call("rbind", verse))),
     book = tolower(as.vector(do.call("rbind", books))),
+    pslam = psalm,
+    verse = verse,
     text = trimws(verses)
   )
+  
   df
 }
 

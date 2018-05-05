@@ -4,10 +4,11 @@
 \name{greek_new_testament}
 \alias{greek_new_testament}
 \title{The Greek New Testament}
-\format{A \link[tibble]{tibble} with 7,958 rows and 3 variables:
+\format{A \link[tibble]{tibble} with 7,958 rows and 4 variables:
 \describe{
-  \item{verse}{ Verse}
   \item{book}{ Book name}
+  \item{pslam}{ Psalm}
+  \item{verse}{ Verse}
   \item{text}{ Text of verse}
 }}
 \source{

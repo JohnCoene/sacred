@@ -3,10 +3,11 @@
 #' A dataset containing all verses of the Tanach, includes all 39
 #' books, one verse per row.
 #'
-#' @format A \link[tibble]{tibble} with 23,213 rows and 3 variables:
+#' @format A \link[tibble]{tibble} with 23,213 rows and 4 variables:
 #' \describe{
-#'   \item{verse}{ Verse}
 #'   \item{book}{ Book name}
+#'   \item{pslam}{ Psalm}
+#'   \item{verse}{ Verse}
 #'   \item{text}{ Text of verse}
 #' }
 #' @source \url{http://www.sacred-texts.com/bib/osrc/}

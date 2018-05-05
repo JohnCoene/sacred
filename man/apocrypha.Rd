@@ -4,10 +4,11 @@
 \name{apocrypha}
 \alias{apocrypha}
 \title{Apocrypha dataframe.}
-\format{A \link[tibble]{tibble} with 5,725 rows and 3 variables:
+\format{A \link[tibble]{tibble} with 5,725 rows and 4 variables:
 \describe{
-  \item{verse}{ Verse}
   \item{book}{ Book name}
+  \item{pslam}{ Psalm}
+  \item{verse}{ Verse}
   \item{text}{ Text of verse}
 }}
 \source{
