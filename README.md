@@ -6,6 +6,8 @@
 sacred
 ======
 
+Analysing the bible with R [post](https://john-coene.com/post/bibler/).
+
 Include 6 **tidy** sacred datasets:
 
 1. `king_james_version` 
@@ -26,5 +28,3 @@ Install
 ``` r
 devtools::install_github("JohnCoene/bibler")
 ```
-
-Head to [this post](https://john-coene.com/post/bibler/) for examples.
