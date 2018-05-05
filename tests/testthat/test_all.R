@@ -3,14 +3,14 @@ library(sacred)
 test_that("King James version", {
   data("king_james_version")
 
-  expect_equal(ncol(king_james_version), 3)
+  expect_equal(ncol(king_james_version), 4)
   expect_equal(nrow(king_james_version), 31102)
 })
 
 test_that("Apocrypha", {
   data("apocrypha")
 
-  expect_equal(ncol(apocrypha), 3)
+  expect_equal(ncol(apocrypha), 4)
   expect_equal(nrow(apocrypha), 5725)
 })
 
