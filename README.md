@@ -1,7 +1,7 @@
 
 [![Travis-CI Build Status](https://travis-ci.org/JohnCoene/bibler.svg?branch=master)](https://travis-ci.org/JohnCoene/bibler) [![Build status](https://ci.appveyor.com/api/projects/status/fgqivf16f1u7jrug/branch/master?svg=true)](https://ci.appveyor.com/project/JohnCoene/bibler/branch/master)
 
-![wordcloud](http://john-coene.com/img/bibler.png)
+![](https://john-coene.com/post/bibler_files/figure-html/unnamed-chunk-9-1.png)
 
 bibler
 ======
