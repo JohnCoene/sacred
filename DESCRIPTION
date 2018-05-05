@@ -14,6 +14,7 @@ RoxygenNote: 6.0.1
 Depends: R (>= 2.10)
 Imports: tibble
 Suggests:
+    dplyr,
     testthat,
     knitr,
     rmarkdown,
