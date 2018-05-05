@@ -329,6 +329,10 @@ middle_english_sentiments <- tibble::tibble(
   sentiment = c(
     rep("positive", length(middle_english_positive)),
     rep("negative", length(middle_english_negative))
+  ),
+  score = c(
+    rep(1, length(middle_english_positive)),
+    rep(-1, length(middle_english_negative))
   )
 )
 
