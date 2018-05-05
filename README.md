@@ -25,7 +25,7 @@ devtools::install_github("JohnCoene/bibler")
 Examples & Docs
 ========
 
-Vignette~ish document and examples can be found [here](http://john-coene.com/packages/bibler/)
+Vignette~ish document and examples can be found [here](https://john-coene.com/post/bibler/)
 
 King James
 ----------
