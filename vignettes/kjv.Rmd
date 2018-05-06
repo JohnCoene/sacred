@@ -36,6 +36,9 @@ library(tidytext)
 data("king_james_version")
 data("middle_english_stopwords") # get middle english stopwords
 
+# set echarts4r theme
+THEME <- "vintage"
+
 # add common englishh stopwords
 sw <- plyr::rbind.fill(stop_words, middle_english_stopwords)
 
@@ -48,7 +51,8 @@ king_james_version %>%
   e_cloud(word, n) %>% 
   e_theme("westeros") %>% 
   e_title("Most mentioned words", "King James Bible") %>% 
-  e_tooltip(trigger = "item")
+  e_tooltip(trigger = "item") %>% 
+  e_theme(THEME)
 ```
 
 #### Sentiment Analysis
@@ -81,13 +85,14 @@ king_james_version %>%
     show = FALSE,
     type = "piecewise",
     pieces = list(
-      list(gt = -250, lte = 0, color = "#D57774"),
-      list(gt = 0, lte = 100, color = "#64D7A0")
+      list(gt = -250, lte = 0, color = "#dc322f"),
+      list(gt = 0, lte = 100, color = "#859900")
     )
   ) %>% 
   e_legend(FALSE) %>%
   e_title("Average sentiment by book", "King James Bible") %>% 
-  e_tooltip(trigger = "axis") -> p
+  e_tooltip(trigger = "axis") %>% 
+  e_theme(THEME) -> p
 
 p
 ```
