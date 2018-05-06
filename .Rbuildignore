@@ -13,3 +13,6 @@ sept.txt
 t3utf.dat
 vuldat.txt
 ^CONDUCT\.md$
+_pkgdown.yml
+docs
+^codecov\.yml$
