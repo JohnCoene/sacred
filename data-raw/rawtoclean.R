@@ -1,4 +1,5 @@
 # source: http://www.sacred-texts.com/bib/osrc/
+library(dplyr)
 
 # define function
 sacred_to_tibble <- function(path){
@@ -37,6 +38,17 @@ sacred_to_tibble <- function(path){
     verse = verse,
     text = trimws(verses)
   )
+  
+  book.num <- tibble(
+    book = unique(df$book),
+    book.num = 1:length(unique(df$book))
+  )
+  
+  df <- df %>% 
+    left_join(book.num, by = "book") %>% 
+    select(
+      book.num, book, psalm, verse, text
+    )
   
   df
 }

@@ -4,8 +4,9 @@
 \name{vulgate}
 \alias{vulgate}
 \title{The Vulgate.}
-\format{A \link[tibble]{tibble} with 35,811 rows and 4 variables:
+\format{A \link[tibble]{tibble} with 35,811 rows and 5 variables:
 \describe{
+  \item{book.num}{ Book number}
   \item{book}{ Book name}
   \item{psalm}{ Psalm}
   \item{verse}{ Verse}

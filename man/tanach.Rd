@@ -4,8 +4,9 @@
 \name{tanach}
 \alias{tanach}
 \title{The Tanach.}
-\format{A \link[tibble]{tibble} with 23,213 rows and 4 variables:
+\format{A \link[tibble]{tibble} with 23,213 rows and 5 variables:
 \describe{
+  \item{book.num}{ Book number}
   \item{book}{ Book name}
   \item{psalm}{ Psalm}
   \item{verse}{ Verse}

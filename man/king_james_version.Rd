@@ -4,8 +4,9 @@
 \name{king_james_version}
 \alias{king_james_version}
 \title{King James Bible.}
-\format{A \link[tibble]{tibble} with 31,102 rows and 4 variables:
+\format{A \link[tibble]{tibble} with 31,102 rows and 5 variables:
 \describe{
+  \item{book.num}{ Book number}
   \item{book}{ Book name}
   \item{psalm}{ Psalm}
   \item{verse}{ Verse}

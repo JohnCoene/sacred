@@ -72,10 +72,10 @@ king_james_version %>%
   unnest_tokens(word, text) %>% 
   anti_join(sw) %>% 
   inner_join(middle_english_sentiments) %>% 
-  group_by(book) %>% 
+  group_by(book.num, book) %>% 
   summarise(score = sum(score)) %>% 
-  e_charts(book) %>% 
-  e_bar(score) %>% 
+  e_charts(book.num) %>% 
+  e_bar(score, bind = book) %>% 
   e_visual_map(
     score,
     show = FALSE,

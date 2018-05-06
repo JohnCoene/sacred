@@ -3,8 +3,9 @@
 #' A dataset containing all verses of the Septuagint, includes all 59
 #' books, one verse per row.
 #'
-#' @format A \link[tibble]{tibble} with 30,374 rows and 4 variables:
+#' @format A \link[tibble]{tibble} with 30,374 rows and 5 variables:
 #' \describe{
+#'   \item{book.num}{ Book number}
 #'   \item{book}{ Book name}
 #'   \item{psalm}{ Psalm}
 #'   \item{verse}{ Verse}
