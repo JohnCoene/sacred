@@ -4,18 +4,16 @@
 sacred
 ======
 
-![](https://john-coene.com/post/bibler_files/figure-html/unnamed-chunk-9-1.png)
+![](https://github.com/JohnCoene/sacred/tree/master/docs/logo..png)
 
-Analysing the bible with R [post](https://john-coene.com/post/bibler/).
+Includes 6 **tidy** sacred datasets:
 
-Include 6 **tidy** sacred datasets:
-
-1. `king_james_version` 
-2. `aprocrypha`
-3. `septuagint`
-4. `tanach`
-5. `vulgate`
-6. `greek_new_testament`
+1. `king_james_version` - The King James Version of the Bible.
+2. `aprocrypha` - The Apocrypha.
+3. `septuagint` - The Septuagint.
+4. `tanach` - The Tanach.
+5. `vulgate` - The Vulgate.
+6. `greek_new_testament` - The Greek New Testament.
 
 Also includes:
 

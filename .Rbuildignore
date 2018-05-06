@@ -16,3 +16,4 @@ vuldat.txt
 _pkgdown.yml
 docs
 ^codecov\.yml$
+sticker.R

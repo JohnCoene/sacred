@@ -8,7 +8,7 @@ navbar:
   left:
     - icon: fa-home
       href: index.html
-    - text: "Get Started"
+    - text: "King James Version"
       href: articles/kjv.html
     - text: "Reference"
       href: "reference/"
