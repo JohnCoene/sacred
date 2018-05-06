@@ -22,6 +22,7 @@ Suggests:
     rmarkdown,
     echarts4r,
     covr
+Remotes: JohnCoene/echarts4r
 VignetteBuilder: knitr
 URL: http://sacred.john-coene.com
 BugReports: https://github.com/JohnCoene/sacred/issues
