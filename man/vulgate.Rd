@@ -7,7 +7,7 @@
 \format{A \link[tibble]{tibble} with 35,811 rows and 4 variables:
 \describe{
   \item{book}{ Book name}
-  \item{pslam}{ Psalm}
+  \item{psalm}{ Psalm}
   \item{verse}{ Verse}
   \item{text}{ Text of verse}
 }}

@@ -2,7 +2,7 @@
 
 # define function
 sacred_to_tibble <- function(path){
-  bible <- readLines(path)
+  bible <- readLines(path, encoding = "UTF-8")
   
   bible <- bible[which(bible != "")]
   
@@ -22,16 +22,18 @@ sacred_to_tibble <- function(path){
   )
   
   verses <- gsub("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|", "", bible)
+  verses <- iconv(verses, to = "UTF-8")
+  verses <- stringi::stri_trans_general(verses, "Latin-ASCII")
   verses <- tolower(verses)
   
-  id = gsub("\\|[[:digit:]]+\\|$", "", verse)
-  psalm = gsub("[[:alpha:]]+|[[:punct:]]+", "", id)
+  id <- gsub("\\|[[:digit:]]+\\|$", "", verse)
+  psalm <- gsub("[[:alpha:]]+|[[:punct:]]+", "", id)
   verse <- gsub("^[[:alnum:]]+\\|[[:digit:]]+\\|", "", verse)
   verse <- gsub("\\|", "", verse)
   
   df <- tibble::tibble(
     book = tolower(as.vector(do.call("rbind", books))),
-    pslam = psalm,
+    psalm = psalm,
     verse = verse,
     text = trimws(verses)
   )
@@ -53,7 +55,7 @@ septuagint <- sacred_to_tibble("./data-raw/sept.txt")
 
 # ============================= GREEK NEW TESTAMENT =================================== #
 
-greek_new_testament <- sacred_to_tibble("./data-raw/gntdat.txt")
+greek_new_testament <- sacred_to_tibble("./data-raw/ugntdat.txt")
 
 # ============================= TANACH =================================== #
 
