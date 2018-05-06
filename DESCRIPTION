@@ -12,8 +12,8 @@ License: MIT + file LICENSE
 LazyData: TRUE
 RoxygenNote: 6.0.1
 Depends: R (>= 2.10)
-Imports: tibble
 Suggests:
+    tibble,
     dplyr,
     tidytext,
     plyr,
@@ -26,3 +26,4 @@ Remotes: JohnCoene/echarts4r
 VignetteBuilder: knitr
 URL: http://sacred.john-coene.com
 BugReports: https://github.com/JohnCoene/sacred/issues
+Encoding: latin1

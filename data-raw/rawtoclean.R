@@ -303,6 +303,7 @@ middle_english_stopwords <- c("and", "that", "to", "i", "for", "of", "the", "in"
                               'ēoden')
 
 middle_english_stopwords <- sort(unique(middle_english_stopwords))
+middle_english_stopwords <- iconv(middle_english_stopwords, to = "utf8")
 
 middle_english_stopwords <- tibble::tibble(
   word = middle_english_stopwords,
@@ -326,8 +327,8 @@ neg_words <- c("evil", "devil", "sin", "filth", "judah", "canaan", "heathen",
                "grievous", "povr", "schatered", "sorwful", "sorrow",
                "miserable", "sad", "untrewe", "welke", "profane")
 
-middle_english_negative <- sort(neg_words)
-middle_english_positive <- sort(pos_words)
+middle_english_negative <- sort(iconv(neg_words, to = "utf8"))
+middle_english_positive <- sort(iconv(pos_words, to = "utf8"))
 
 middle_english_sentiments <- tibble::tibble(
   word = c(
