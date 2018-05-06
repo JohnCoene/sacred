@@ -25,7 +25,7 @@ Sacred texts in R. `sacred` includes 6 tidy datasets about the 'Apocrypha', the 
 
 ### Term Frequency
 
-We can have a look at the most mentioned terms in the Bible. Here I use the `king_james_tm` dataset which is a corpus of documents from the [tm](https://cran.r-project.org/package=tm) package. 
+We can have a look at the most mentioned terms in the Bible. Here I use the `king_james_version` dataset which is a corpus of documents from the [tm](https://cran.r-project.org/package=tm) package. 
 
 `sacred` also comes with a set of `r data("middle_english_stopwords"); nrow(middle_english_stopwords)` Middle English stopwords.
 
@@ -70,12 +70,17 @@ library(tidytext)
 data("king_james_version")
 data("middle_english_sentiments")
 
-books <- unique(king_james_version$book)
+# add common sentiment
+sent <- plyr::rbind.fill(
+  middle_english_sentiments, 
+  get_sentiments("afinn")
+) %>% 
+  unique()
 
 king_james_version %>% 
   unnest_tokens(word, text) %>% 
   anti_join(sw) %>% 
-  inner_join(middle_english_sentiments) %>% 
+  inner_join(sent) %>% 
   group_by(book.num, book) %>% 
   summarise(score = sum(score)) %>% 
   e_charts(book.num) %>% 
@@ -85,8 +90,8 @@ king_james_version %>%
     show = FALSE,
     type = "piecewise",
     pieces = list(
-      list(gt = -250, lte = 0, color = "#dc322f"),
-      list(gt = 0, lte = 100, color = "#859900")
+      list(gt = -1500, lte = 0, color = "#dc322f"),
+      list(gt = 0, lte = 600, color = "#859900")
     )
   ) %>% 
   e_legend(FALSE) %>%
@@ -99,15 +104,13 @@ p
 
 There is indeed more negativity at the "beginning" of the Bible: the Old Testament is far more gruesome than the New Testament. 
 
-The *Song of Solomon* (book #22) is a lapse of light amidst the dark and spine-chilling godly injunctions of the Old Testament, it is scripturally unique in its celebration of sexual love. 
+The *Psalms* (book #19) is a lapse of light amidst the dark and spine-chilling godly injunctions of the Old Testament, "psalm" means "praises," it seems appropriate to be the most positive book. 
 
 John 3 in the New Testament is also positive, by the Bible standard anyway: John accepts Jesus as the Messiah, gets baptised, finds the path to God, etc. Good stuff. 
 
-The most negative book according to the analysis is *Zephaniah* (book #36) which is not inaccurate, the message of the book is best summed by this terse and unambiguous passage:
+The most negative book according to the analysis is *Book of Isaiah* (book #24) which is not inaccurate, the message of the book is summed by Wikipedia:
 
-> "You also, O Ethiopians, / Shall be killed by my sword."
-
-Zephaniah comes towards the end of the Old Testament and those who have not accepted the truth by then must be slain.
+> "The book opens by setting out the themes of judgment and subsequent restoration for the righteous. God has a plan which will be realised on the "Day of Yahweh", when Jerusalem will become the centre of his worldwide rule."
   
 ```{r, warning = FALSE}
 style <- list(
@@ -140,6 +143,6 @@ p %>%
 Christopher Hitchens once said that Mary only appeared three times in the bibe. I cannot tell exactly what he meant by "appeared" (only God knows now) but we can tell that she is mentioned far more often - `r length(king_james_version$text[grep("Mary", king_james_version$text)])` times.
 
 
-```{r, eval=FALSE}
-length(king_james_df$Ttxt[grep("Mary[[:space:]]|Mary[[:punct:]]", king_james_df$text)]) # nbr mentions
+```{r, eval=TRUE}
+length(king_james_version$text[grep("Mary", king_james_version$text)]) # nbr mentions
 ```

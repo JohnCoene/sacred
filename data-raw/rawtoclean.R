@@ -25,7 +25,6 @@ sacred_to_tibble <- function(path){
   verses <- gsub("^[[:alnum:]]+\\|[0-9]+\\|[0-9]+\\|", "", bible)
   verses <- iconv(verses, to = "UTF-8")
   verses <- stringi::stri_trans_general(verses, "Latin-ASCII")
-  verses <- tolower(verses)
   
   id <- gsub("\\|[[:digit:]]+\\|$", "", verse)
   psalm <- gsub("[[:alpha:]]+|[[:punct:]]+", "", id)
