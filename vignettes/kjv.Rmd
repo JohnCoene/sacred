@@ -87,7 +87,9 @@ king_james_version %>%
   ) %>% 
   e_legend(FALSE) %>%
   e_title("Average sentiment by book", "King James Bible") %>% 
-  e_tooltip(trigger = "item")
+  e_tooltip(trigger = "axis") -> p
+
+p
 ```
 
 There is indeed more negativity at the "beginning" of the Bible: the Old Testament is far more gruesome than the New Testament. 
@@ -111,30 +113,7 @@ style <- list(
   )
 )
 
-data("king_james_version")
-data("middle_english_sentiments")
-
-
-king_james_version %>% 
-  unnest_tokens(word, text) %>% 
-  anti_join(sw) %>% 
-  inner_join(middle_english_sentiments) %>% 
-  group_by(book) %>% 
-  summarise(score = sum(score)) %>% 
-  e_charts(book) %>% 
-  e_bar(score) %>% 
-  e_visual_map(
-    score,
-    show = FALSE,
-    type = "piecewise",
-    pieces = list(
-      list(gt = -250, lte = 0, color = "#D57774"),
-      list(gt = 0, lte = 100, color = "#64D7A0")
-    )
-  ) %>% 
-  e_legend(FALSE) %>%
-  e_title("Average sentiment by book", "King James Bible") %>% 
-  e_tooltip(trigger = "item") %>% 
+p %>% 
   e_mark_area(
     itemStyle = style,
     data = list(      

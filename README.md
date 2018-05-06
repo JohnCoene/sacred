@@ -4,7 +4,7 @@
 sacred
 ======
 
-![](https://github.com/JohnCoene/sacred/tree/master/docs/logo..png)
+![logo](https://raw.githubusercontent.com/JohnCoene/sacred/master/docs/logo.png)
 
 Includes 6 **tidy** sacred datasets:
 
