@@ -31,7 +31,7 @@ We can have a look at the most mentioned terms in the Bible. Here I use the `kin
 
 ```{r}
 library(dplyr)
-library(echarts4r)
+library(echarts4r) # devtools::install_github("JohnCoene/sacred")
 library(tidytext)
 data("king_james_version")
 data("middle_english_stopwords") # get middle english stopwords
@@ -64,27 +64,28 @@ Most sentiment lexicons are based on online reviews or social media conversation
 We can now assess the sentiment of each psalm and plot the sentiment score by book in order of appearance in the Bible.
 
 ```{r, warning=FALSE, fig_width = 8}
-library(echarts4r)
-library(tidytext)
-  
-data("king_james_version")
 data("middle_english_sentiments")
 
 # add common sentiment
+common_sentiments <- get_sentiments("afinn")
+common_sentiments <- common_sentiments %>% 
+  anti_join(middle_english_sentiments, by = "word")
+
 sent <- plyr::rbind.fill(
   middle_english_sentiments, 
-  get_sentiments("afinn")
+  common_sentiments
 ) %>% 
+  select(-sentiment) %>%
   unique()
 
 king_james_version %>% 
   unnest_tokens(word, text) %>% 
   anti_join(sw) %>% 
   inner_join(sent) %>% 
-  group_by(book.num, book) %>% 
+  group_by(book.num) %>% 
   summarise(score = sum(score)) %>% 
   e_charts(book.num) %>% 
-  e_bar(score, bind = book) %>% 
+  e_bar(score) %>% 
   e_visual_map(
     score,
     show = FALSE,
@@ -127,12 +128,12 @@ p %>%
     data = list(      
       list(
         name = "Old Testament",
-        xAxis = 1,
-        yAxis = -250
+        xAxis = 0,
+        yAxis = -1500
       ),
       list(
         xAxis = 41,
-        yAxis = 100
+        yAxis = 500
       )
     )
   ) 
