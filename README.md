@@ -6,7 +6,7 @@ sacred
 
 ![logo](https://raw.githubusercontent.com/JohnCoene/sacred/master/docs/logo.png)
 
-Includes 6 **tidy** sacred datasets:
+Includes 9 **tidy** sacred datasets:
 
 1. `king_james_version` - The King James Version of the Bible.
 2. `aprocrypha` - The Apocrypha.
@@ -14,6 +14,9 @@ Includes 6 **tidy** sacred datasets:
 4. `tanach` - The Tanach.
 5. `vulgate` - The Vulgate.
 6. `greek_new_testament` - The Greek New Testament.
+7. `book_of_mormon` - The book of Mormon
+8. `doctrine_and_covenants` - Doctrine & Covenants
+9. `pearl_of_great_price` - Pearl of Great Price
 
 Also includes:
 
