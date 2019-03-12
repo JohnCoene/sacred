@@ -10,7 +10,7 @@ Description: All 66 books comprising of the 'Apocrypha', the 'King James Bible',
     as text mining utilities suited to Middle English.
 License: MIT + file LICENSE
 LazyData: TRUE
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Depends: R (>= 2.10)
 Suggests:
     tibble,

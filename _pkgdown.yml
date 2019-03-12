@@ -1,6 +1,6 @@
 template:
   params:
-    bootswatch: solar
+    bootswatch: yeti
     ganalytics: UA-74544116-1
 
 navbar:
